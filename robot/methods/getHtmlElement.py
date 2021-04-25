@@ -8,3 +8,4 @@ def getHtmlElement(url):
     charset = chardet.detect(html)
     html = html.decode(charset['encoding'])
     return html
+    
