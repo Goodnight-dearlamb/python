@@ -8,6 +8,7 @@ from urllib import request
 from selenium import webdriver
 from bs4 import BeautifulSoup as bs
 from methods.getHtmlElement import *
+from methods.Pdo import PDO
 
 class jinSe(object):
     """docstring for jinSe."""
@@ -78,8 +79,10 @@ class jinSe(object):
         html = getHtmlElement(url)
         soup = bs(html, 'html.parser')
         article = this.getArticleInfo(soup)
-        article["id"] = articleId
-        print(res)
+        article["article_id"] = articleId
+        pdo = PDO()
+        PDO.insert_db(this, table = "article", data = article)
+        # res = Pdo.insert_db(table = "article", data = "data")
 
     # 获取文章信息
     def getArticleInfo(this, soup):
@@ -129,3 +132,4 @@ class jinSe(object):
 if __name__ == "__main__":
     this = jinSe()
     this.scrollPage("https://jinse.com")
+    # this.test()
