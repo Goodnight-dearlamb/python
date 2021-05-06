@@ -1,11 +1,11 @@
 #!/usr/bin/env pytho
 # -*- coding:utf-8 -*-
-import pymysql
+# import pymysql
 
 class PDO(object):
     """docstring for PDO."""
     # 初始化连接
-    def __init__(self, host="127.0.0.1", user="root", password="", database="demo", charset="utf8", port=3306):
+    def __init__(self, host="127.0.0.1", user="root", password="", database="demo", charset="utf8", port=3310):
         try:
             self.connect = pymysql.connect(host=host, user=user, password=password, database=database, charset=charset)
             self.cursor = self.connect.cursor()

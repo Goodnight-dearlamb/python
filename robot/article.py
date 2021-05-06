@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# coding=utf-8
+
 import re
 import os
 import sys
@@ -95,12 +98,12 @@ class jinSe(object):
         hour = articleAuthor.find_all("span")[2].string                         # 时间
         views = articleAuthor.find_all("span")[3].string                        # 浏览量
         tag = soup.find("section", class_="js-article-tag").string              # 标签
-        img = article.find_all("img" )                                           # 图片
+        img = article.find_all("img" )                                          # 图片
         this.getArticleImg(img)                                                 # 保存图片
         article_str = str(article).replace("https://img.jinse.com/", "https://img.jinse.com/")    # 文章内容
         print ("> 当前文章内容获取完成 ✔")
         return {
-            "article_titile":    title,
+            "article_title":    title,
             "article_author_id": 11,
             # "author":   author,
             "article_time":      hour,
